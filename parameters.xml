@@ -66,6 +66,25 @@
             </dimension>
         </dimensions>
     </parameter>
+    <parameter name="azrh">
+        <type>F</type>
+        <units>radian</units>
+        <model>PRMS</model>
+        <desc>Downstream bearing of the segment from north</desc>
+        <help>Downstream bearing of the segment from north</help>
+        <minimum>-1.5708</minimum>
+        <maximum>1.5708</maximum>
+        <default>0.0</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>56460</size>
+            </dimension>
+        </dimensions>
+    </parameter>
     <parameter name="albset_rnm">
         <type>F</type>
         <units>decimal fraction</units>
@@ -635,6 +654,19 @@
             </dimension>
         </dimensions>
     </parameter>
+    <parameter name="gwdepth_seg">
+        <type>F</type>
+        <units>m</units>
+        <model>PRMS</model>
+        <desc>Depth to groundwater aquifer beneath segment</desc>
+        <help>Depth to groundwater aquifer beneath segment</help>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>56460</size>
+            </dimension>
+        </dimensions>
+    </parameter>
     <parameter name="gwflow_coef">
         <type>F</type>
         <units>fraction/day</units>
@@ -1026,6 +1058,19 @@
             </dimension>
         </dimensions>
     </parameter>
+    <parameter name="logtrans_seg">
+        <type>F</type>
+        <units>log(m squared/day)</units>
+        <model>PRMS</model>
+        <desc>Transmissivity of groundwater aquifer beneath segment</desc>
+        <help>Log10 of effective transmissivity of groundwater aquifer beneath segment</help>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>56460</size>
+            </dimension>
+        </dimensions>
+    </parameter>
     <parameter name="melt_force">
         <type>I</type>
         <units>Julian day</units>
@@ -1061,6 +1106,18 @@
             <dimension name="nhru">
                 <position>1</position>
                 <size>109951</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="mann_n">
+        <type>F</type>
+        <model>PRMS</model>
+        <desc>Manning's n</desc>
+        <help>Manning's n</help>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>56460</size>
             </dimension>
         </dimensions>
     </parameter>
@@ -1201,7 +1258,7 @@
         <dimensions>
             <dimension name="npoigages">
                 <position>1</position>
-                <size>8285</size>
+                <size>8282</size>
             </dimension>
         </dimensions>
     </parameter>
@@ -1221,7 +1278,7 @@
         <dimensions>
             <dimension name="npoigages">
                 <position>1</position>
-                <size>8285</size>
+                <size>8282</size>
             </dimension>
         </dimensions>
     </parameter>
@@ -1240,7 +1297,7 @@
         <dimensions>
             <dimension name="npoigages">
                 <position>1</position>
-                <size>8285</size>
+                <size>8282</size>
             </dimension>
         </dimensions>
     </parameter>
@@ -1595,6 +1652,108 @@
             <module>streamflow</module>
             <module>muskingum</module>
         </modules>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>56460</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="seg_depth">
+        <type>F</type>
+        <units>meter</units>
+        <model>PRMS</model>
+        <desc>Depth of bankfull water in segment</desc>
+        <help>Width of segment</help>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>56460</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="seg_elev">
+        <type>F</type>
+        <units>meter</units>
+        <model>PRMS</model>
+        <desc>Elevation of segment midpoint</desc>
+        <help>Elevation of segment midpoint</help>
+        <minimum>-1000.0</minimum>
+        <maximum>30000.0</maximum>
+        <default>0.0</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>56460</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="seg_lat">
+        <type>F</type>
+        <units>degree latitude</units>
+        <model>PRMS</model>
+        <desc>Latitude of segment midpoint</desc>
+        <help>Latitude of segment midpoint</help>
+        <minimum>-90.0</minimum>
+        <maximum>90.0</maximum>
+        <default>40.0</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>56460</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="seg_length">
+        <type>F</type>
+        <units>meter</units>
+        <model>PRMS</model>
+        <desc>Length of segment</desc>
+        <help>Length of segment</help>
+        <minimum>1.0</minimum>
+        <maximum>100000.0</maximum>
+        <default>1000.0</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>56460</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="seg_slope">
+        <type>F</type>
+        <units>meter/meter</units>
+        <model>PRMS</model>
+        <desc>Slope of segment</desc>
+        <help>Slope of segment</help>
+        <minimum>0.0001</minimum>
+        <maximum>2.0</maximum>
+        <default>0.015</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>56460</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="seg_width">
+        <type>F</type>
+        <units>meter</units>
+        <model>PRMS</model>
+        <desc>Width of bankfull water segment</desc>
+        <help>Width of segment</help>
         <dimensions>
             <dimension name="nsegment">
                 <position>1</position>
@@ -2259,6 +2418,19 @@
             </dimension>
         </dimensions>
     </parameter>
+    <parameter name="top_width">
+        <type>F</type>
+        <units>meter</units>
+        <model>PRMS</model>
+        <desc>Top width of the bankfull flow in the segment</desc>
+        <help>Top width of the bankfull flow in the segment</help>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>56460</size>
+            </dimension>
+        </dimensions>
+    </parameter>
     <parameter name="tosegment">
         <type>I</type>
         <units>none</units>
@@ -2420,6 +2592,42 @@
             <dimension name="nhru">
                 <position>1</position>
                 <size>109951</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="width_alpha">
+        <type>F</type>
+        <model>PRMS</model>
+        <desc>Alpha coefficient in power function for width calculation</desc>
+        <help>Alpha coefficient in power function for width calculation</help>
+        <minimum>0.0001</minimum>
+        <maximum>2.0</maximum>
+        <default>0.015</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>56460</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="width_m">
+        <type>F</type>
+        <model>PRMS</model>
+        <desc>M coefficient in power function for width calculation</desc>
+        <help>M coefficient in power function for width calculation</help>
+        <minimum>0.0001</minimum>
+        <maximum>2.0</maximum>
+        <default>0.015</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>56460</size>
             </dimension>
         </dimensions>
     </parameter>
