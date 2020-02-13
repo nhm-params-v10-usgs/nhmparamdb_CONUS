@@ -72,8 +72,8 @@
         <model>PRMS</model>
         <desc>Downstream bearing of the segment from north</desc>
         <help>Downstream bearing of the segment from north</help>
-        <minimum>-1.5708</minimum>
-        <maximum>1.5708</maximum>
+        <minimum>0.0</minimum>
+        <maximum>6.28296</maximum>
         <default>0.0</default>
         <modules>
             <module>stream_temp</module>
@@ -298,8 +298,8 @@
         <model>PRMS</model>
         <desc>Slope in temperature degree-day relationship</desc>
         <help>Monthly (January to December) slope in degree-day equation for each HRU</help>
-        <minimum>0.2</minimum>
-        <maximum>0.9</maximum>
+        <minimum>0.1</minimum>
+        <maximum>1.4</maximum>
         <default>0.4</default>
         <modules>
             <module>ddsolrad</module>
@@ -380,8 +380,8 @@
         <model>PRMS</model>
         <desc>Fraction of unsatisfied potential evapotranspiration to apply to surface-depression storage</desc>
         <help>Fraction of unsatisfied potential evapotranspiration to apply to surface-depression storage</help>
-        <minimum>0.0</minimum>
-        <maximum>1.0</maximum>
+        <minimum>0.5</minimum>
+        <maximum>1.5</maximum>
         <default>1.0</default>
         <modules>
             <module>srunoff</module>
@@ -481,8 +481,8 @@
         <model>PRMS</model>
         <desc>Coefficient used in linear seepage flow equation for closed surface depressions</desc>
         <help>Coefficient used in linear seepage flow equation for closed surface depressions for each HRU</help>
-        <minimum>0.0001</minimum>
-        <maximum>0.1</maximum>
+        <minimum>0.0</minimum>
+        <maximum>0.2</maximum>
         <default>0.02</default>
         <modules>
             <module>srunoff</module>
@@ -502,8 +502,8 @@
         <model>PRMS</model>
         <desc>Coefficient used in linear seepage flow equation for open surface depressions</desc>
         <help>Coefficient used in linear seepage flow equation for open surface depressions for each HRU</help>
-        <minimum>0.0001</minimum>
-        <maximum>0.1</maximum>
+        <minimum>0.0</minimum>
+        <maximum>0.2</maximum>
         <default>0.02</default>
         <modules>
             <module>srunoff</module>
@@ -712,7 +712,7 @@
         <desc>Initial storage in each GWR</desc>
         <help>Storage in each GWR at the beginning of a simulation</help>
         <minimum>0.0</minimum>
-        <maximum>10.0</maximum>
+        <maximum>50.0</maximum>
         <default>2.0</default>
         <modules>
             <module>gwflow</module>
@@ -1022,9 +1022,9 @@
         <model>PRMS</model>
         <desc>Monthly air temperature coefficient for each HRU - Jensen-Haise</desc>
         <help>Monthly (January to December) air temperature coefficient used in Jensen-Haise potential ET computations for each HRU</help>
-        <minimum>0.0</minimum>
-        <maximum>0.1</maximum>
-        <default>0.013999999999999999</default>
+        <minimum>-0.5</minimum>
+        <maximum>1.5</maximum>
+        <default>0.014</default>
         <modules>
             <module>potet_jh</module>
         </modules>
@@ -1288,7 +1288,7 @@
         <model>PRMS</model>
         <desc>Type code for each POI gage</desc>
         <help>Type code for each POI gage</help>
-        <minimum>1</minimum>
+        <minimum>0</minimum>
         <maximum>1</maximum>
         <default>1</default>
         <modules>
@@ -1716,8 +1716,8 @@
         <model>PRMS</model>
         <desc>Length of segment</desc>
         <help>Length of segment</help>
-        <minimum>1.0</minimum>
-        <maximum>100000.0</maximum>
+        <minimum>0.001</minimum>
+        <maximum>200000.0</maximum>
         <default>1000.0</default>
         <modules>
             <module>stream_temp</module>
@@ -1735,9 +1735,9 @@
         <model>PRMS</model>
         <desc>Slope of segment</desc>
         <help>Slope of segment</help>
-        <minimum>0.0001</minimum>
+        <minimum>0.0000001</minimum>
         <maximum>2.0</maximum>
-        <default>0.015</default>
+        <default>0.0001</default>
         <modules>
             <module>stream_temp</module>
         </modules>
@@ -1754,6 +1754,9 @@
         <model>PRMS</model>
         <desc>Width of bankfull water segment</desc>
         <help>Width of segment</help>
+        <minimum>0.18</minimum>
+        <maximum>40000.0</maximum>
+        <default>15.0</default>            
         <dimensions>
             <dimension name="nsegment">
                 <position>1</position>
@@ -1845,7 +1848,7 @@
         <desc>Exponent in contributing area computations</desc>
         <help>Exponent in non-linear contributing area algorithm for each HRU</help>
         <minimum>0.0</minimum>
-        <maximum>1.0</maximum>
+        <maximum>5.0</maximum>
         <default>0.3</default>
         <modules>
             <module>srunoff</module>
